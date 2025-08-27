@@ -12,3 +12,9 @@ body {
 #divInicial {
     text-align: center;
 }
+
+#cardapioDiv {
+    margin:auto;
+    margin-top: 6%;
+    padding: 30px;
+}

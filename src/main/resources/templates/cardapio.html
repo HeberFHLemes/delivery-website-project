@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delivery | Cardápio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link th:href="@{/static/style.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div th:if="${produtos != null}" class="row row-cols-1 row-cols-md-3 g-4">
-        <div th:each="prod : ${produtos}" class="col">
-            <div class="card h-100">
-                <img src="#" class="card-img-top" alt="#">
-                <div class="card-body">
-                    <h5 th:text="${prod.nome}" class="card-title"></h5>
-                    <p th:text="${prod.preco}" class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+    <header th:replace="fragments/general.html :: header"></header>
+    <div id="cardapioDiv">
+        <div th:if="${produtos != null}" class="row row-cols-1 row-cols-md-3 g-4">
+            <div th:each="prod : ${produtos}" class="col">
+                <div class="card h-100">
+                    <img src="#" class="card-img-top" alt="#">
+                    <div class="card-body">
+                        <h5 th:text="${prod.nome}" class="card-title"></h5>
+                        <p th:text="${prod.preco}" class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
                 </div>
             </div>
         </div>
