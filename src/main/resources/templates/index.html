@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delivery | Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link th:href="@{/static/style.css}" rel="stylesheet">
 </head>
 <body>
-  <h1>Olá!</h1>
+    <div id="divInicial">
+        <div id="boasVindasDiv">
+            <h1>Olá!</h1>
+            <h2>Seja bem-vindo(a) ao Delivery!</h2>
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button class="btn btn-primary" type="button"><a th:href="@{'/cardapio'}">Ver cardápio</a></button>
+        </div>
+    </div>
 </body>
 </html>
