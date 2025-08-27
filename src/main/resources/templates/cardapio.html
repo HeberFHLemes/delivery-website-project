@@ -13,25 +13,24 @@
         <div th:if="${produtos != null}" class="row row-cols-1 row-cols-md-3 g-4">
             <div th:each="prod : ${produtos}" class="col">
                 <div class="card">
-                    <img th:src="@{'/assets/' + ${prod.imagem}}" class="card-img-top" alt="#" src="#">
+                    <img th:src="@{'/assets/' + ${prod.imagem}}" class="card-img-top" style="max-height: 400px; max-width: 600px" alt="#" src="#">
                     <div class="card-body">
-                        <h5 th:text="${prod.nome}" class="card-title"></h5>
-                        <p class="card-text">
-                            <ul>
+                        <div class="row card-title">
+                            <h5 class="col" th:text="${prod.nome}"></h5>
+                            <h5 class="col" id="precoCard" th:text="'R$ ' + ${prod.preco}"></h5>
+                        </div>
+                        <p class="card-text" th:text="${prod.descricao}">
+                            <!--<ul>
                                 <li th:each="ingrediente : ${prod.ingredientes}">
                                     <p th:text="${ingrediente.key.nome} + ' ' + ${ingrediente.value} + ${ingrediente.key.unidadeMedida}"></p>
                                 </li>
-                            </ul>
-                            <p th:text="'R$ ' + ${prod.preco}"></p>
+                            </ul>-->
                         </p>
-                        <!--<p th:text="'R$ ' + ${prod.preco}" class="card-text"></p>-->
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
 </body>
 </html>

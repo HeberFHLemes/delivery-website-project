@@ -9,11 +9,11 @@
   <div th:fragment="header">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{'/'}">Delivery</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
+          <a class="navbar-brand" th:href="@{'/'}">Delivery</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" th:href="@{'/'}">Início</a>
@@ -29,6 +29,31 @@
         </div>
       </div>
     </nav>
+  </div>
+  <div th:fragment="footer">
+    <footer class="bg-dark text-white text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">📜Sobre nós</h5>
+            <p>
+              O melhor hambúrguer de Caxias do Sul! Venha nos visitar também!
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">📞Contato</h5>
+            <p>Telefone: (54) 912345-6789</p>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">📍Endereço</h5>
+            <p>Rua Universidade, Nº 123, Bairro Universitário</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2025 Delivery. Todos os direitos reservados.
+      </div>
+    </footer>
   </div>
 </body>
 </html>
