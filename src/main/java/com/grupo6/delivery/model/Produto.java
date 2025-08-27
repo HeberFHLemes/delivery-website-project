@@ -9,5 +9,6 @@ import java.util.Map;
 public class Produto {
     private String nome;
     private Double preco;
+    private String imagem;
     private Map<Ingrediente, Double> ingredientes;
 }

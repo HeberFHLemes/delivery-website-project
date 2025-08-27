@@ -8,15 +8,23 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <header th:replace="fragments/general.html :: header"></header>
+    <header th:replace="~{fragments/general.html :: header}"></header>
     <div id="cardapioDiv">
         <div th:if="${produtos != null}" class="row row-cols-1 row-cols-md-3 g-4">
             <div th:each="prod : ${produtos}" class="col">
-                <div class="card h-100">
-                    <img src="#" class="card-img-top" alt="#">
+                <div class="card">
+                    <img th:src="@{'/assets/' + ${prod.imagem}}" class="card-img-top" alt="#" src="#">
                     <div class="card-body">
                         <h5 th:text="${prod.nome}" class="card-title"></h5>
-                        <p th:text="${prod.preco}" class="card-text"></p>
+                        <p class="card-text">
+                            <ul>
+                                <li th:each="ingrediente : ${prod.ingredientes}">
+                                    <p th:text="${ingrediente.key.nome} + ' ' + ${ingrediente.value} + ${ingrediente.key.unidadeMedida}"></p>
+                                </li>
+                            </ul>
+                            <p th:text="'R$ ' + ${prod.preco}"></p>
+                        </p>
+                        <!--<p th:text="'R$ ' + ${prod.preco}" class="card-text"></p>-->
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Last updated 3 mins ago</small>

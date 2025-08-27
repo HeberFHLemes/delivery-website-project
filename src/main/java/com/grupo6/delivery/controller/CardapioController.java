@@ -1,6 +1,7 @@
 package com.grupo6.delivery.controller;
 
 import com.grupo6.delivery.service.ProdutoService;
+import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +29,7 @@ public class CardapioController {
     public ModelAndView pesquisarNoCardapio(@RequestParam(name = "pesquisa") String pesquisa){
         return new ModelAndView("cardapio").addObject(
                 "produtos",
-                Arrays.stream(produtoService.mockProdutos())
-                        .filter(
-                                p -> p.getNome().regionMatches(true, 0, pesquisa, 0, pesquisa.length())
-                        ).collect(Collectors.toList())
+                produtoService.mockProdutosFiltrados(pesquisa)
         );
     }
 }
