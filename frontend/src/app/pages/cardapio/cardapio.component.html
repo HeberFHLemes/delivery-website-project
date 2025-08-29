@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div id="cardapioDiv">
+  <div *ngIf="produtos?.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let prod of produtos" class="col">
+      <div class="card">
+        <img [src]="'/assets/' + prod.imagem" class="card-img-top" style="max-height: 400px; max-width: 600px" alt="#">
+        <div class="card-body">
+          <div class="row card-title">
+            <h5 class="col">{{ prod.nome }}</h5>
+            <h5 class="col" id="precoCard">R$ {{ prod.preco }}</h5>
+          </div>
+          <p class="card-text">
+            {{ prod.descricao }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
