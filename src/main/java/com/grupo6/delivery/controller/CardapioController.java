@@ -16,16 +16,13 @@ public class CardapioController {
 
     @GetMapping("/cardapio")
     public ModelAndView verCardapio(){
-        ModelAndView mv = new ModelAndView("cardapio");
-        mv.addObject("produtos", produtoService.mockProdutos());
-        return mv;
+        return new ModelAndView("cardapio")
+                .addObject("produtos", produtoService.acharTodos());
     }
 
     @GetMapping("/cardapio/pesquisa")
     public ModelAndView pesquisarNoCardapio(@RequestParam(name = "pesquisa") String pesquisa){
-        return new ModelAndView("cardapio").addObject(
-                "produtos",
-                produtoService.mockProdutosFiltrados(pesquisa)
-        );
+        return new ModelAndView("cardapio")
+                .addObject("produtos", produtoService.acharPeloNome(pesquisa));
     }
 }

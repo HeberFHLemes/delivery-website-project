@@ -1,20 +1,19 @@
 package com.grupo6.delivery.service;
 
-import com.grupo6.delivery.model.Ingrediente;
 import com.grupo6.delivery.model.Produto;
-import com.grupo6.delivery.model.TipoIngrediente;
+import com.grupo6.delivery.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class ProdutoService {
 
+    @Autowired
+    private ProdutoRepository produtoRepository;
+
+    /*
     public Produto[] mockProdutos(){
         return new Produto[]{
                 new Produto("X-Tudo", "O Hambúrguer mais completo de Caxias!", 20.99d, "xtudo.jpg", Map.of(
@@ -36,11 +35,18 @@ public class ProdutoService {
                 ))
         };
     }
-
     public List<Produto> mockProdutosFiltrados(String pesquisa){
         return Arrays.stream(mockProdutos())
                 .filter(
                         p -> p.getNome().regionMatches(true, 0, pesquisa, 0, pesquisa.length())
                 ).collect(Collectors.toList());
+    }*/
+
+    public List<Produto> acharTodos(){
+        return this.produtoRepository.findAll();
+    }
+
+    public List<Produto> acharPeloNome(String nome){
+        return this.produtoRepository.findByNomeContainingIgnoreCase(nome);
     }
 }
