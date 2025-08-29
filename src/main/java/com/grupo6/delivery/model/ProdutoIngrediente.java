@@ -1,5 +1,6 @@
 package com.grupo6.delivery.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class ProdutoIngrediente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne @JsonIgnore
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
